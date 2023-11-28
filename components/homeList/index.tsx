@@ -76,6 +76,7 @@ const Item: React.FC<ItemProps> = ({ station }) => {
                 }}
                 color={station.status ? "green.700" : "red.700"}
                 marginRight={3}
+                fontWeight={"semibold"}
               >
                 {station.status ? "Ativo" : "Inativo"}
               </Text>

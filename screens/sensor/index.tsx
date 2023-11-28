@@ -1,7 +1,13 @@
 // Arquivo: ./home/index.tsx
 import { LinearGradient } from "expo-linear-gradient";
 import { View, Text } from "native-base";
-import { LineChart, Grid, YAxis, XAxis } from "react-native-svg-charts";
+import {
+  LineChart,
+  Grid,
+  YAxis,
+  XAxis,
+  BarChart,
+} from "react-native-svg-charts";
 import React, { useEffect, useState } from "react";
 
 interface SensorProps {
@@ -14,7 +20,7 @@ interface RenderItemProps {
   measurement: "string";
 }
 
-const initialData = [15, 16, 15, 16, 17, 15];
+const initialData = [15, 16, 15, 16, 17, 15, 15, 17, 18];
 const contentInset = { top: 20, bottom: 20 };
 
 const getMax = (data: number[]) => {
@@ -57,14 +63,14 @@ const Chart = ({ data, measurement }: RenderItemProps) => {
           numberOfTicks={10}
           formatLabel={(value) => `${value}${measurement}`}
         />
-        <LineChart
+        <BarChart
           style={{ flex: 1, marginLeft: 16 }}
           data={data}
-          svg={{ stroke: "#B84700" }}
+          svg={{ fill: "#B84700" }}
           contentInset={{ top: 20, bottom: 20 }}
         >
           <Grid />
-        </LineChart>
+        </BarChart>
       </View>
       <XAxis
         style={{ marginLeft: 45 }}
@@ -129,7 +135,7 @@ const Sensor: React.FC<SensorProps> = ({ navigation, route }) => {
           }}
         >
           <Text textAlign={"center"} fontSize={20} fontWeight={"bold"}>
-            Tela de detalhes sobre {sensor.sensorName}
+            Detalhes sobre {sensor.sensorName}
           </Text>
         </LinearGradient>
         <View
@@ -139,6 +145,8 @@ const Sensor: React.FC<SensorProps> = ({ navigation, route }) => {
           bgColor={"#9EB3C2"}
           borderBottomRadius={20}
           borderTopWidth={1}
+          borderColor={"#B84700"}
+          borderWidth={1}
           style={{
             flex: 1,
             shadowColor: "#000",
@@ -156,7 +164,7 @@ const Sensor: React.FC<SensorProps> = ({ navigation, route }) => {
             bgColor={"white"}
             mt={5}
             margin={3}
-            height={300}
+            height={"63%"}
             style={{
               shadowColor: "#000",
               shadowOffset: {

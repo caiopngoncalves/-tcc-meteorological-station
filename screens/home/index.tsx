@@ -58,7 +58,8 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
           marginTop={"7%"}
           bgColor={"#9EB3C2"}
           borderTopRadius={20}
-          borderBottomWidth={1}
+          borderWidth={1}
+          borderColor={"#B84700"}
           flexDirection={"column"}
           justifyItems={"center"}
           style={{
@@ -90,7 +91,6 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
             height: "10%",
             marginHorizontal: "3%",
             borderRadius: 20,
-            borderColor: "black",
             flexDirection: "column",
             justifyContent: "center",
           }}
@@ -143,7 +143,16 @@ const Home: React.FC<HomeProps> = ({ navigation }) => {
             elevation: 8,
           }}
         >
-          <HomeList list={data}></HomeList>
+          <View
+            flex={1}
+            borderColor={"#B84700"}
+            borderWidth={1}
+            borderRadius={20}
+            borderTopWidth={0}
+            borderTopRadius={0}
+          >
+            <HomeList list={data}></HomeList>
+          </View>
         </View>
       </View>
     </LinearGradient>
